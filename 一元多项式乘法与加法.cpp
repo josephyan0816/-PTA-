@@ -66,7 +66,7 @@ Polynomial Add(Polynomial P1,Polynomial P2){
 	Rear=P;
 	while(t1&&t2){
 		if(t1->expon==t2->expon){
-				if(t1->coef+t2->coef){
+				if(t1->coef+t2->coef){/*我一开始的问题在这个t1的1没有打出来，但是我的dev并未报错，PTA没有打印第2行*/
 					Attach(t1->coef+t2->coef,t1->expon,&Rear);
 				}
 			t1=t1->next;
@@ -169,3 +169,8 @@ void PrintPoly(Polynomial P){
 		printf("\n");
 	}
 	
+/*我感觉这个如果一开始学校的课程跟不上的话太正常了，很多学校C都没讲完，C的核心部分就在后面指针那部分，但是我所在的学校基本没怎么讲过，全班都是抄作
+这个的话建议跟翁恺老师的C语言进阶把结构指针部分在好好补一下，我一开始就有一个误区，认为链表，结点，数组，顺序表这些没有区别，真的是太naive，学校讲的太弱智了，
+我个人感觉想深入的话先跟着浙大MOOC还得看书，在把题做一遍，对，先抄1,2遍，背一下，再开始理解
+
+*/
