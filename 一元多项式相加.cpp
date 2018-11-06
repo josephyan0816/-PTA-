@@ -44,7 +44,7 @@ void Attach(int c,int e,Polynomial *pRear){
 	P->coef=c;
 	P->expon=e;
 	P->link=NULL;
-	(*pRear)->link=P;
+	(*pRear)->link=P;//这里用指针的指针的时候dev是不会提示的
 	*pRear=P;
 	
 }
@@ -59,7 +59,9 @@ Polynomial PolyAdd(Polynomial P1,Polynomial P2){
 			Attach(P1->coef,P1->expon,&rear);
 			P1=P1->link;
 		
-		}
+		}						//何老师原来的视频中有compare，但是这个在c的库函数中并没有，
+								//实现的方法可以自己写了一个compare函数或者像我这样直接比较
+																
 		else if(P1->expon<P2->expon){
 			Attach(P2->coef,P2->expon,&rear);
 			P2=P2->link;
