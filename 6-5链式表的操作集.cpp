@@ -71,7 +71,7 @@ List Insert( List L, ElementType X, Position P )
 	List p=(List)malloc(sizeof(struct LNode));
 	p->Data=X;
 	p->Next=NULL;
-	if(P==L)	//如果插入位置在表尾，直接插入 
+	if(P==L)	//濡傛灉鎻掑叆浣嶇疆鍦ㄨ〃灏撅紝鐩存帴鎻掑叆 
 	{
 		p->Next=L;
 		return p;
@@ -81,18 +81,15 @@ List Insert( List L, ElementType X, Position P )
 	{
 		if(P==L->Next)
 		{
-			//List temp=L->Next;	
-			//L->Next=p;
-			//p->Next=temp;
-			List temp;
-			temp->Next=p->Next;
+			List temp=L->Next;	
+			L->Next=p;
 			p->Next=temp;
 			return head;
 		}
 		
 		L=L->Next;
 	}
-	printf("Wrong Position For Insertation\n");
+	printf("Wrong Position for Insertion\n");
 	return ERROR;
 	
 	
@@ -116,7 +113,7 @@ if(P==L){
 		L=L->Next;
 	}
 	
-	printf("Wrong Position For Deletion\n");
+	printf("Wrong Position for Deletion\n");
 	return ERROR;
 	
 }
