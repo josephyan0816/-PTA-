@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 #define ERROR NULL
-//typedef enum{false, true} bool;
+//typedef enum{false, true} bool;	//这里我一开始始终报错，因为在dev中bool已经定义过了
 typedef int ElementType;
 typedef struct LNode *PtrToLNode;
 struct LNode {
@@ -77,8 +77,8 @@ Position Find( List L, ElementType X )
 	}
 	return ERROR;
 }
-bool Insert( List L, ElementType X, Position P )
-{
+bool Insert( List L, ElementType X, Position P )			//这里书上传递的是int，但实际上这里应该传指针
+{									//不能直接像书上那样直接写，我一开始死活不懂，书上的代码是伪的，int代表的是位置							
 	Position q=(Position)malloc(sizeof(struct LNode));
 	q->Data=X;
 	q->Next=P;
