@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <stdio.h>	//这题的图我在草稿纸上画出来前面还是对的，但是最后的结果应该是14也pop出来，但是实际上没有	
 #include <stdlib.h>
 #include<string.h> 
 #define ERROR 1e8
