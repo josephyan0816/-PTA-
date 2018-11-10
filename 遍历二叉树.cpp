@@ -10,7 +10,7 @@ struct TNode{
     BinTree Right;
 };
 
-BinTree CreatBinTree(); /* ʵ��ϸ�ں��� */
+BinTree CreatBinTree(); /* ÊµÏÖÏ¸½ÚºöÂÔ */
 void InorderTraversal( BinTree BT );
 void PreorderTraversal( BinTree BT );
 void PostorderTraversal( BinTree BT );
@@ -89,7 +89,8 @@ void PostorderTraversal( BinTree BT ){
 	
 }
 void LevelorderTraversal( BinTree BT ){
-	
+					//前几种遍历比较简单，靠递归，而且书上的代码可以直接用
+					//层序遍历的时候两个数组，q用来存入队的数据，p用来打印，当两个指针都走完的时候队空
 	BinTree q[100];
 	BinTree p;
 	int head=0;
