@@ -80,7 +80,7 @@ bool Insert( List L, ElementType X, Position P )
 		printf("ILLEGAL POSITION");
 		return false;
 	}
-	for(i=L->Last;i>(P-1);i--)		//插入的位置不是数组的下标，应该要减一 
+	for(i=L->Last;i>(P-1);i--)		
 		
 		L->Data[i+1]=L->Data[i];
 		L->Data[P]=X;
