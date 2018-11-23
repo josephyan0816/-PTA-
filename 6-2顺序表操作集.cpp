@@ -1,15 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include<stdbool.h> 
+
 #define MAXSIZE 5
 #define ERROR -1
-//typedef enum {false, true} ;
+
 typedef int ElementType;
 typedef int Position;
 typedef struct LNode *List;
 struct LNode {
     ElementType Data[MAXSIZE];
-    Position Last; /* 保存线性表中最后一个元素的位置 */
+    Position Last; /* 淇濆瓨绾挎�ц〃涓渶鍚庝竴涓厓绱犵殑浣嶇疆 */
 };
 
 List MakeEmpty(); 
@@ -50,74 +50,56 @@ int main()
     }
     return 0;
 }
-List MakeEmpty(){
-	List p;
-	p=(List)malloc(sizeof(struct LNode));
-	p->Last=-1;
-	return p;
+List MakeEmpty()
+{
+	List L=(List)malloc(sizeof(struct LNode));
+	L->Last=-1;
+	return L;
+	
 }
-
-Position Find( List L, ElementType X ){
-	/*	Position i=0;
+Position Find( List L, ElementType X )
+{
+	Position i=0;
 	while(i<=L->Last&&L->Data[i]!=X)
 		i++;
-		if(i>L->Last)return ERROR;
-		else return i;
-	*/
-	int i;
-	for(i=0;i<=L->Last;i++){
-		if(L->Data[i]==X){
-		return i;
-		}
-	}
-	return ERROR;
+	if(i>L->Last)return ERROR;
+	else return i;
+	
 }
-bool Insert( List L, ElementType X, Position P ){
-/*	Position j;
-	if(L->Last==MAXSIZE-1){
+bool Insert( List L, ElementType X, Position P )
+{
+	Position i;
+	if(L->Last==MAXSIZE-1)
+	{
 		printf("FULL");
 		return false;
 	}
-	if(P<0||P>L->Last+1){
+	if(P<0||P>L->Last+1)	//杩欓鐨凱骞朵笉鏄〃绀轰綅搴忥紝鑰屾槸涓嬫爣锛岃繖鏄繖閬撻鎴戜竴鐩存病鏈塧c鐨勫師鍥狅紝瑕佽棰樺晩
+	 
+	{
 		printf("ILLEGAL POSITION");
 		return false;
 	}
-	for(j=L->Last;j>=P-1;j--){
-		L->Data[j+1]=L->Data[j];
-		L->Data[P-1]=X;
+	for(i=L->Last;i>(P-1);i--)		//鎻掑叆鐨勪綅缃笉鏄暟缁勭殑涓嬫爣锛屽簲璇ヨ鍑忎竴 
+		
+		L->Data[i+1]=L->Data[i];
+		L->Data[P]=X;
 		L->Last++;
-		return true;
-	}
-*/
-  if(L->Last==MAXSIZE-1){//容量慢
-        printf("FULL");
-        return false;
-    }
-    if(P<0||P>L->Last+1){//只能查到已有数字的位置或最后一个的下一个
-        printf("ILLEGAL POSITION");
-        return false;
-    }
-    int i;
-    for(i = L->Last+1; i > P; i--){
-        L->Data[i] = L->Data[i-1];//向右平移
-    }
-    L->Data[i] = X;//插入
-    L->Last++;//个数增加
-    return true;
-	
+	return true;
+		
+			
+		
 }
-bool Delete( List L, Position P ){
-	int	 i;
+bool Delete( List L, Position P )
+{
 	if(P<0||P>L->Last)
 	{
 		printf("POSITION %d EMPTY",P);
 		return false;
 	}
+	Position i;
 	for(i=P;i<L->Last;i++)
 		L->Data[i]=L->Data[i+1];
-		
-		
-	
 	L->Last--;
 	return true;
 }
